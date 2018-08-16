@@ -99,6 +99,34 @@
   </div>
 
 <script>
+  const inputs = document.querySelectorAll('input');
+  const inputsArr = [...inputs];
+  let firstCheckedIndex;
+
+  inputsArr.forEach((input, index) => {
+    input.addEventListener('click', e => {
+      if (e.shiftKey && firstCheckedIndex !== -1) {
+        if (index > firstCheckedIndex) {
+          for (var i = firstCheckedIndex; i < index; i++) {
+            inputsArr[i].checked = true;
+          }
+        }
+        console.log(index, firstCheckedIndex);
+        if (index < firstCheckedIndex) {
+          console.log('heelo');
+          for (var j = index; j < firstCheckedIndex; j++) {
+            inputsArr[j].checked = true;
+          }
+        }
+      }
+
+      if (inputsArr.findIndex(input => input.checked) !== firstCheckedIndex) {
+        firstCheckedIndex = inputsArr.findIndex(input => input.checked);
+        // console.log(firstCheckedIndex);
+      }
+    })
+  })
+
 </script>
 </body>
 </html>
