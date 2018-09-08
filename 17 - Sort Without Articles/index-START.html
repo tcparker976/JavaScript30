@@ -67,8 +67,6 @@ bands.sort((a, b) => {
   return bandA[0] > bandB[0] ? 1: -1;
 });
 
-console.log(bandList);
-
 bandList.innerHTML = bands.map(band => {
   return `
     <li>${band}</li>
